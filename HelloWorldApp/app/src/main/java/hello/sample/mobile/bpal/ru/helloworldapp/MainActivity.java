@@ -1,8 +1,13 @@
 package hello.sample.mobile.bpal.ru.helloworldapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+
+import java.io.Serializable;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,11 +16,23 @@ public class MainActivity extends AppCompatActivity {
 
     private final String state = "Моя Умная Строка";
     private int counter = 0;
-    //serg // TODO: 28.04.16  
+
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedState) {
         super.onCreate(savedState);
+
+        button = (Button) findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+//                intent.putExtra("cat_id", 0);
+                startActivity(intent);
+            }
+        });
+
         counter++;
         setContentView(R.layout.activity_main);
 
@@ -24,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         if (null != savedState) {
             answer = savedState.getString("answer");
         }
-        Log.i(TAG, "onCreate: " + " : " +counter +" : "
+        Log.i(TAG, "onCreate: " + " : " + counter + " : "
                 + (null == savedState ? "" : (RESTORE + " " + answer)));
     }
 
@@ -32,34 +49,34 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestart() {
         super.onRestart();
         // Notification that the activity will be started
-        Log.i(TAG, "onRestart" + " : " +counter +" : ");
+        Log.i(TAG, "onRestart" + " : " + counter + " : ");
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         // Notification that the activity is starting
-        Log.i(TAG, "onStart" + " : " +counter +" : ");
+        Log.i(TAG, "onStart" + " : " + counter + " : ");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         // Notification that the activity will interact with the user
-        Log.i(TAG, "onResume" + " : " +counter +" : ");
+        Log.i(TAG, "onResume" + " : " + counter + " : ");
     }
 
     protected void onPause() {
         super.onPause();
         // Notification that the activity will stop interacting with the user
-        Log.i(TAG, "onPause"  + " : " +counter +" : "+ (isFinishing() ? " Finishing" : ""));
+        Log.i(TAG, "onPause" + " : " + counter + " : " + (isFinishing() ? " Finishing" : ""));
     }
 
     @Override
     protected void onStop() {
         super.onStop();
         // Notification that the activity is no longer visible
-        Log.i(TAG, "onStop" + " : " +counter +" : ");
+        Log.i(TAG, "onStop" + " : " + counter + " : ");
     }
 
     @Override
@@ -67,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         // Notification the activity will be destroyed
         Log.i(TAG,
-                "onDestroy " + " : " +counter +" : "
+                "onDestroy " + " : " + counter + " : "
                         // Log which, if any, configuration changed
                         + Integer.toString(getChangingConfigurations(), 16));
     }
@@ -81,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         // Save instance-specific state
         outState.putString("answer", state);
         super.onSaveInstanceState(outState);
-        Log.i(TAG, "onSaveInstanceState" + " : " +counter +" : ");
+        Log.i(TAG, "onSaveInstanceState" + " : " + counter + " : ");
 
     }
 
@@ -90,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedState);
         String answer = null != savedState ? savedState.getString("answer") : "";
 
-        Log.i(TAG, "onRestoreInstanceState" + " : " +counter +" : "
+        Log.i(TAG, "onRestoreInstanceState" + " : " + counter + " : "
                 + (null == savedState ? "" : RESTORE) + " " + answer);
     }
 
@@ -106,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
         if (null != savedState) {
             answer = savedState.getString("answer");
         }
-        Log.i(TAG, "onPostCreate" + " : " +counter +" : "
+        Log.i(TAG, "onPostCreate" + " : " + counter + " : "
                 + (null == savedState ? "" : (RESTORE + " " + answer)));
 
     }
@@ -114,12 +131,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPostResume() {
         super.onPostResume();
-        Log.i(TAG, "onPostResume" + " : " +counter +" : ");
+        Log.i(TAG, "onPostResume" + " : " + counter + " : ");
     }
 
     @Override
     protected void onUserLeaveHint() {
         super.onUserLeaveHint();
-        Log.i(TAG, "onUserLeaveHint" + " : " +counter +" : ");
+        Log.i(TAG, "onUserLeaveHint" + " : " + counter + " : ");
     }
+
+
 }
