@@ -23,6 +23,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedState) {
         super.onCreate(savedState);
 
+        counter++;
+        setContentView(R.layout.activity_main);
+
         button = (Button) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,9 +35,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        counter++;
-        setContentView(R.layout.activity_main);
 
         String answer = null;
         // savedState could be null
