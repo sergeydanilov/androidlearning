@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.io.Serializable;
 
@@ -32,7 +33,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
 //                intent.putExtra("cat_id", 0);
-                startActivity(intent);
+//                startActivity(intent);
+
+                Toast.makeText(MainActivity.this, "adsasdasdasd", Toast.LENGTH_SHORT).show();
             }
         });
 
