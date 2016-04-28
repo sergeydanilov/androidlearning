@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
 
     private final String state = "Моя Умная Строка";
     private int counter = 0;
+    //serg // TODO: 28.04.16  
 
     @Override
     protected void onCreate(Bundle savedState) {
