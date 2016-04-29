@@ -45,11 +45,15 @@ public class MainActivity extends AppCompatActivity {
 //                intent.putExtra("cat_id", 0);
 //                startActivity(intent);
 
-//                Toast.makeText(MainActivity.this, "adsasdasdasd", Toast.LENGTH_SHORT).show();
-                Person person = new Person(idText.getText().toString(), nameText.getText().toString(), stateText.getText().toString());
-                Intent intent = new Intent(MainActivity.this, PersonActivity.class);
-                intent.putExtra("person", person);
+                Intent intent = new Intent(MainActivity.this, SpinnerActivity.class);
+                intent.putExtra("cat_id", 0);
                 startActivity(intent);
+
+//                Toast.makeText(MainActivity.this, "adsasdasdasd", Toast.LENGTH_SHORT).show();
+//                Person person = new Person(idText.getText().toString(), nameText.getText().toString(), stateText.getText().toString());
+//                Intent intent = new Intent(MainActivity.this, PersonActivity.class);
+//                intent.putExtra("person", person);
+//                startActivity(intent);
             }
         });
 

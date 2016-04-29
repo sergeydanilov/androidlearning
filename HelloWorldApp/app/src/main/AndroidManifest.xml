@@ -20,7 +20,8 @@
             android:name=".activity.SecondActivity"
             android:configChanges="orientation|screenSize" />
         <activity android:name=".activity.ContactActivity" />
-        <activity android:name=".activity.PersonActivity"></activity>
+        <activity android:name=".activity.PersonActivity" />
+        <activity android:name=".activity.SpinnerActivity"></activity>
     </application>
 
 </manifest>
