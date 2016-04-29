@@ -6,13 +6,13 @@ import android.os.Parcelable;
 /**
  *
  */
-public class Student implements Parcelable {
+public class Person implements Parcelable {
     private String id;
     private String name;
     private String grade;
 
     // Constructor
-    public Student(String id, String name, String grade){
+    public Person(String id, String name, String grade){
         this.id = id;
         this.name = name;
         this.grade = grade;
@@ -20,7 +20,7 @@ public class Student implements Parcelable {
 
 
     // Parcelling part
-    public Student(Parcel in){
+    public Person(Parcel in){
         String[] data = new String[3];
 
         in.readStringArray(data);
@@ -41,12 +41,12 @@ public class Student implements Parcelable {
     }
 
     public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
-        public Student createFromParcel(Parcel in) {
-            return new Student(in);
+        public Person createFromParcel(Parcel in) {
+            return new Person(in);
         }
 
-        public Student[] newArray(int size) {
-            return new Student[size];
+        public Person[] newArray(int size) {
+            return new Person[size];
         }
     };
 }

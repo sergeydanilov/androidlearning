@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import hello.sample.mobile.bpal.ru.helloworldapp.HelloWordApplication;
 import hello.sample.mobile.bpal.ru.helloworldapp.R;
@@ -38,8 +37,12 @@ public class MainActivity extends AppCompatActivity {
 
 //                Toast.makeText(MainActivity.this, "adsasdasdasd", Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(MainActivity.this, ActivityickContact.class);
+
+                Intent intent = new Intent(MainActivity.this, ContactActivity.class);
                 startActivity(intent);
+
+
+
             }
         });
 

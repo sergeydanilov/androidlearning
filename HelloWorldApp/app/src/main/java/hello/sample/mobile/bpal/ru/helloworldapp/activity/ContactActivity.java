@@ -6,22 +6,33 @@ import android.net.Uri;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import hello.sample.mobile.bpal.ru.helloworldapp.HelloWordApplication;
 import hello.sample.mobile.bpal.ru.helloworldapp.R;
 
-public class ActivityickContact extends AppCompatActivity {
+public class ContactActivity extends AppCompatActivity {
 
     private final String TAG = HelloWordApplication.TAG_PREFIX + this.getClass().getSimpleName();
     static final int PICK_CONTACT_REQUEST = 1;
+
+    Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activityick_contact);
-        pickContact();
+
+        button = (Button) findViewById(R.id.contactButton);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pickContact();
+            }
+        });
     }
 
     @Override
