@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import hello.sample.mobile.bpal.ru.helloworldapp.HelloWordApplication;
 import hello.sample.mobile.bpal.ru.helloworldapp.R;
+import hello.sample.mobile.bpal.ru.helloworldapp.data.Person;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,6 +21,10 @@ public class MainActivity extends AppCompatActivity {
     private int counter = 0;
 
     private Button button;
+    private EditText idText;
+    private EditText nameText;
+    private EditText stateText;
+
 
     @Override
     protected void onCreate(Bundle savedState) {
@@ -28,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         button = (Button) findViewById(R.id.button);
+        idText= (EditText) findViewById(R.id.editText);
+        nameText= (EditText) findViewById(R.id.editText1);
+        stateText= (EditText) findViewById(R.id.editText2);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -36,13 +46,10 @@ public class MainActivity extends AppCompatActivity {
 //                startActivity(intent);
 
 //                Toast.makeText(MainActivity.this, "adsasdasdasd", Toast.LENGTH_SHORT).show();
-
-
-                Intent intent = new Intent(MainActivity.this, ContactActivity.class);
+                Person person = new Person(idText.getText().toString(), nameText.getText().toString(), stateText.getText().toString());
+                Intent intent = new Intent(MainActivity.this, PersonActivity.class);
+                intent.putExtra("person", person);
                 startActivity(intent);
-
-
-
             }
         });
 

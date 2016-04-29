@@ -18,8 +18,9 @@
         </activity>
         <activity
             android:name=".activity.SecondActivity"
-            android:configChanges="orientation|screenSize"></activity>
-        <activity android:name=".activity.ContactActivity"></activity>
+            android:configChanges="orientation|screenSize" />
+        <activity android:name=".activity.ContactActivity" />
+        <activity android:name=".activity.PersonActivity"></activity>
     </application>
 
 </manifest>
