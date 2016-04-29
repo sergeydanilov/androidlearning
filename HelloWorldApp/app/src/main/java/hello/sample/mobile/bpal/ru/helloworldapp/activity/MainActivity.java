@@ -32,11 +32,14 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+//                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
 //                intent.putExtra("cat_id", 0);
 //                startActivity(intent);
 
-                Toast.makeText(MainActivity.this, "adsasdasdasd", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this, "adsasdasdasd", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(MainActivity.this, ActivityickContact.class);
+                startActivity(intent);
             }
         });
 
