@@ -1,9 +1,11 @@
-package hello.sample.mobile.bpal.ru.helloworldapp;
+package hello.sample.mobile.bpal.ru.helloworldapp.activity;
 
 import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
+
+import hello.sample.mobile.bpal.ru.helloworldapp.R;
 
 public class SecondActivity extends AppCompatActivity {
 

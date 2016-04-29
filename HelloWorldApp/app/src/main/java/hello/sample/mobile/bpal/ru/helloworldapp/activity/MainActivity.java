@@ -1,4 +1,4 @@
-package hello.sample.mobile.bpal.ru.helloworldapp;
+package hello.sample.mobile.bpal.ru.helloworldapp.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import java.io.Serializable;
+import hello.sample.mobile.bpal.ru.helloworldapp.HelloWordApplication;
+import hello.sample.mobile.bpal.ru.helloworldapp.R;
 
 public class MainActivity extends AppCompatActivity {
 
