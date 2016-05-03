@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.3"
 
     defaultConfig {
-        applicationId "cities.sample.mobile.bpal.ru.tpproviderdemo"
+        applicationId "ru.bpla.mobile.tpproviderdemo"
         minSdkVersion 23
         targetSdkVersion 23
         versionCode 1

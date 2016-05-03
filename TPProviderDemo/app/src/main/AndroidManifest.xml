@@ -2,13 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cities.sample.mobile.bpal.ru.tpproviderdemo">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="ru.bpal.mobile.tpproviderdemo.activity.MainActivity">
+        <activity android:name="ru.bpal.mobile.tpproviderdemo.activity.MainToLoadCitiesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -16,12 +18,16 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="ru.bpal.mobile.tpproviderdemo.activity.MainActivity"></activity>
+
+
         <provider
-            android:authorities="ru.bpal.mobile.tpproviderdemo.data.provider"
             android:name="ru.bpal.mobile.tpproviderdemo.data.CitiesContentProvider"
+            android:authorities="ru.bpal.mobile.tpproviderdemo.data.provider"
             android:icon="@mipmap/ic_launcher"
-            android:label="@string/provider_label"
-            />
+            android:label="@string/provider_label" />
+
+        <service android:name="ru.bpal.mobile.tpproviderdemo.service.TPService" />
 
     </application>
 

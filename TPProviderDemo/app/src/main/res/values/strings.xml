@@ -10,4 +10,6 @@
     <string name="content_updated">Данные изменены</string>
     <string name="permission_label">Доступ к списку городов</string>
     <string name="permission_description">Возможность получить разрешение на чтение к списку городов.</string>
+    <string name="load_cities">load cities</string>
+    <string name="run_cities">RUN</string>
 </resources>

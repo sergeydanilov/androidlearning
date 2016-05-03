@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+     <!-- localhost -->
+    <!--<string name="host">localhost</string>-->
+    <!--<integer name="port">8080</integer>-->
+    <!--<string name="protocol">http</string>-->
+    <!--<string name="context">v1</string>-->
+    
+    <!-- test host -->
+    <string name="host">192.168.0.3</string>
+    <integer name="port">9090</integer>
+    <string name="protocol">http</string>
+    <string name="context">v1</string>
+
+</resources>
