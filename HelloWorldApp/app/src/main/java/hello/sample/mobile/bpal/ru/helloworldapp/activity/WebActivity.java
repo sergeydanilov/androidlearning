@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import hello.sample.mobile.bpal.ru.helloworldapp.R;
 
@@ -15,10 +16,19 @@ public class WebActivity extends AppCompatActivity {
         setContentView(R.layout.activity_web);
 
         WebView myWebView = (WebView) findViewById(R.id.webview);
+        myWebView.setWebViewClient(new MyBrowser());
 
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
 
         myWebView.loadUrl("http://www.google.com");
+    }
+
+    private class MyBrowser extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            view.loadUrl(url);
+            return true;
+        }
     }
 }

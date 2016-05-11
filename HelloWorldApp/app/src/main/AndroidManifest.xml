@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="hello.sample.mobile.bpal.ru.helloworldapp">
 
+
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:name=".HelloWordApplication"
         android:allowBackup="true"
@@ -23,8 +25,6 @@
         <activity android:name=".activity.PersonActivity" />
         <activity android:name=".activity.SpinnerActivity" />
         <activity android:name=".activity.WebActivity"></activity>
-
-        <uses-permission android:name="android.permission.INTERNET" />
 
         <activity android:name=".activity.AsynctTasksActivity"></activity>
     </application>

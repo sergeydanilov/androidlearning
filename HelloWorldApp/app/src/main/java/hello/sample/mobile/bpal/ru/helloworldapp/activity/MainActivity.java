@@ -49,7 +49,8 @@ public class MainActivity extends AppCompatActivity {
 //                intent.putExtra("cat_id", 0);
 //                startActivity(intent);
 
-                Intent intent = new Intent(MainActivity.this, AsynctTasksActivity.class);
+//                Intent intent = new Intent(MainActivity.this, AsynctTasksActivity.class);
+                Intent intent = new Intent(MainActivity.this, WebActivity.class);
                 startActivity(intent);
 
 //                Toast.makeText(MainActivity.this, "adsasdasdasd", Toast.LENGTH_SHORT).show();
