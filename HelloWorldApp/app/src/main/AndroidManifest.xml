@@ -23,6 +23,9 @@
         <activity android:name=".activity.PersonActivity" />
         <activity android:name=".activity.SpinnerActivity" />
         <activity android:name=".activity.WebActivity"></activity>
+
+        <uses-permission android:name="android.permission.INTERNET" />
+
     </application>
 
 </manifest>
