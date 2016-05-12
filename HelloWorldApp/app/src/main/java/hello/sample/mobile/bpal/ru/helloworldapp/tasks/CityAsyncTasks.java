@@ -40,9 +40,9 @@ public class CityAsyncTasks extends AsyncTask<String,Integer, Integer> {
 
             return status;
         } catch (MalformedURLException e) {
-            e.printStackTrace();
+            Log.e("error: " ,e.getMessage());
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.e("error: " ,e.getMessage());
         }
 
 
