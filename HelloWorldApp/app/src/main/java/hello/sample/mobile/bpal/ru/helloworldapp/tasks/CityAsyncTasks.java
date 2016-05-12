@@ -3,6 +3,10 @@ package hello.sample.mobile.bpal.ru.helloworldapp.tasks;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.ArrayAdapter;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -18,11 +22,13 @@ import java.util.List;
 
 import hello.sample.mobile.bpal.ru.helloworldapp.HelloWordApplication;
 import hello.sample.mobile.bpal.ru.helloworldapp.activity.AsynctTasksActivity;
+import hello.sample.mobile.bpal.ru.helloworldapp.data.Contact;
+import hello.sample.mobile.bpal.ru.helloworldapp.tasks.parser.ContactParser;
 
 /**
  * Created by Topexpert on 11.05.2016.
  */
-public class CityAsyncTasks extends AsyncTask<String,Integer, Integer> {
+public class CityAsyncTasks extends AsyncTask<String, Integer, Integer> {
 
     private final String TAG = HelloWordApplication.TAG_PREFIX + this.getClass().getSimpleName();
 
@@ -45,14 +51,27 @@ public class CityAsyncTasks extends AsyncTask<String,Integer, Integer> {
             resultString = readStream(in);
             int status = urlConnection.getResponseCode();
 
+//            resultString = "" +
+//                    "[" +
+//                    "  {" +
+//                    "    \"name\":\"Anjela\"," +
+//                    "    \"lastName\": \"Teryuhova\"" +
+//                    "  }," +
+//                    "  {" +
+//                    "    \"name\":\"Sergey\"," +
+//                    "    \"lastName\": \"Danilov\"" +
+//                    "  }" +
+//                    "]" +
+//                    "";
+
             publishProgress(50);
 
-            Log.i(TAG, "get string = "+resultString);
+            Log.i(TAG, "get string = " + resultString);
             return status;
         } catch (MalformedURLException e) {
-            Log.e("error: " ,e.getMessage());
+            Log.e("error: ", e.getMessage());
         } catch (IOException e) {
-            Log.e("error: " ,e.getMessage());
+            Log.e("error: ", e.getMessage());
         }
 
 
@@ -61,21 +80,50 @@ public class CityAsyncTasks extends AsyncTask<String,Integer, Integer> {
 
 
     protected void onProgressUpdate(Integer... progress) {
-        Log.i(TAG,"progress = " + progress);
+        Log.i(TAG, "progress = " + progress);
 //        setProgressPercent(progress[0]);
     }
 
     protected void onPostExecute(Integer result) {
-        Log.i(TAG,"result = " + result);
+        Log.i(TAG, "result = " + result);
         if (result == HttpURLConnection.HTTP_OK) {
             context.textView.setText(resultString);
-//            if(context instanceof AsynctTasksActivity) {
-//                ((AsynctTasksActivity) context).textView
+
+            try {
+
+                JSONArray jsonArray = new JSONArray(resultString);
+
+                String[] strings = new String[jsonArray.length()];
+
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    strings[i] = jsonArray.getString(i);
+                }
+
+                ArrayAdapter<String> itemsAdapter =
+                        new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, strings);
+                context.listView.setAdapter(itemsAdapter);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+
+//            List<Contact> contacts = new ArrayList<>();
+//            try {
+//                JSONArray jsonArray = new JSONArray(resultString);
+//                ContactParser contactParser = new ContactParser();
+//                for (int i=0; i<jsonArray.length();i++) {
+//                    contacts.add(contactParser.parseContcat(jsonArray.getJSONObject(i)));
+//                }
+//                Log.i(TAG, "list = " + contacts);
+//
+//            } catch (JSONException e) {
+//                e.printStackTrace();
 //            }
 
 
         } else {
-            context.textView.setText("ERROR "+result);
+            context.textView.setText("ERROR " + result);
         }
 //        showDialog("Downloaded " + result + " bytes");
 
@@ -99,13 +147,13 @@ public class CityAsyncTasks extends AsyncTask<String,Integer, Integer> {
                 stringBuilder.append("");
             }
         } catch (IOException ex) {
-            Log.e(TAG, "doFilter: get data string error ",ex);
+            Log.e(TAG, "doFilter: get data string error ", ex);
         } finally {
             if (bufferedReader != null) {
                 try {
                     bufferedReader.close();
                 } catch (IOException ex) {
-                    Log.e(TAG, "doFilter: get data string error ",ex);
+                    Log.e(TAG, "doFilter: get data string error ", ex);
                 }
             }
         }
