@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private int counter = 0;
 
     private Button button;
+    private Button loaderButton;
     private EditText idText;
     private EditText nameText;
     private EditText stateText;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         button = (Button) findViewById(R.id.button);
+        loaderButton = (Button) findViewById(R.id.loaderButton);
         idText= (EditText) findViewById(R.id.editText);
         nameText= (EditText) findViewById(R.id.editText1);
         stateText= (EditText) findViewById(R.id.editText2);
@@ -58,6 +60,14 @@ public class MainActivity extends AppCompatActivity {
 //                Intent intent = new Intent(MainActivity.this, PersonActivity.class);
 //                intent.putExtra("person", person);
 //                startActivity(intent);
+            }
+        });
+
+        loaderButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AsyncLoaderDemoActivity.class);
+                startActivity(intent);
             }
         });
 
