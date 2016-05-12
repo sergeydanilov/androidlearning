@@ -20,21 +20,25 @@ import hello.sample.mobile.bpal.ru.helloworldapp.HelloWordApplication;
 /**
  * Created by Topexpert on 11.05.2016.
  */
-public class CityAsyncTasks extends AsyncTask<String,Integer, Long> {
+public class CityAsyncTasks extends AsyncTask<String,Integer, Integer> {
 
     private final String TAG = HelloWordApplication.TAG_PREFIX + this.getClass().getSimpleName();
 
     @Override
-    protected Long doInBackground(String... strings) {
+    protected Integer doInBackground(String... strings) {
         HttpURLConnection urlConnection = null;
 
         URL url = null;
         try {
-            url = new URL("http://172.20.20.151:9090/cities");
+            url = new URL("http://bpal.ru:9090/cities");
             urlConnection = (HttpURLConnection) url.openConnection();
             InputStream in = new BufferedInputStream(urlConnection.getInputStream());
             String str = readStream(in);
-            System.out.println(str);
+            int status = urlConnection.getResponseCode();
+
+            Log.i(TAG, "get string = " + str);
+
+            return status;
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -44,6 +48,17 @@ public class CityAsyncTasks extends AsyncTask<String,Integer, Long> {
 
         return null;
     }
+
+
+    protected void onProgressUpdate(Integer... progress) {
+//        setProgressPercent(progress[0]);
+    }
+
+    protected void onPostExecute(Integer result) {
+//        showDialog("Downloaded " + result + " bytes");
+
+    }
+
     String readStream(InputStream input) {
 
         String body = null;
