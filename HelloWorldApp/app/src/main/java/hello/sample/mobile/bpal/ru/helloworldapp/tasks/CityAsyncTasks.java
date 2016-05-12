@@ -1,5 +1,6 @@
 package hello.sample.mobile.bpal.ru.helloworldapp.tasks;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import hello.sample.mobile.bpal.ru.helloworldapp.HelloWordApplication;
+import hello.sample.mobile.bpal.ru.helloworldapp.activity.AsynctTasksActivity;
 
 /**
  * Created by Topexpert on 11.05.2016.
@@ -23,6 +25,13 @@ import hello.sample.mobile.bpal.ru.helloworldapp.HelloWordApplication;
 public class CityAsyncTasks extends AsyncTask<String,Integer, Integer> {
 
     private final String TAG = HelloWordApplication.TAG_PREFIX + this.getClass().getSimpleName();
+
+    AsynctTasksActivity context;
+    String resultString;
+
+    public CityAsyncTasks(AsynctTasksActivity context) {
+        this.context = context;
+    }
 
     @Override
     protected Integer doInBackground(String... strings) {
@@ -33,11 +42,12 @@ public class CityAsyncTasks extends AsyncTask<String,Integer, Integer> {
             url = new URL("http://bpal.ru:9090/cities");
             urlConnection = (HttpURLConnection) url.openConnection();
             InputStream in = new BufferedInputStream(urlConnection.getInputStream());
-            String str = readStream(in);
+            resultString = readStream(in);
             int status = urlConnection.getResponseCode();
 
-            Log.i(TAG, "get string = " + str);
+            publishProgress(50);
 
+            Log.i(TAG, "get string = "+resultString);
             return status;
         } catch (MalformedURLException e) {
             Log.e("error: " ,e.getMessage());
@@ -57,6 +67,16 @@ public class CityAsyncTasks extends AsyncTask<String,Integer, Integer> {
 
     protected void onPostExecute(Integer result) {
         Log.i(TAG,"result = " + result);
+        if (result == HttpURLConnection.HTTP_OK) {
+            context.textView.setText(resultString);
+//            if(context instanceof AsynctTasksActivity) {
+//                ((AsynctTasksActivity) context).textView
+//            }
+
+
+        } else {
+            context.textView.setText("ERROR "+result);
+        }
 //        showDialog("Downloaded " + result + " bytes");
 
     }

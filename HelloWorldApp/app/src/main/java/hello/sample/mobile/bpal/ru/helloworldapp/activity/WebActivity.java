@@ -17,7 +17,7 @@ public class WebActivity extends AppCompatActivity {
         setContentView(R.layout.activity_web);
 
         WebView myWebView = (WebView) findViewById(R.id.webview);
-        myWebView.setWebViewClient(new MyBrowser());
+        //myWebView.setWebViewClient(new MyBrowser());
 
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
