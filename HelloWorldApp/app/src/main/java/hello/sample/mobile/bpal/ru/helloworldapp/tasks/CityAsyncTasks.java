@@ -51,10 +51,12 @@ public class CityAsyncTasks extends AsyncTask<String,Integer, Integer> {
 
 
     protected void onProgressUpdate(Integer... progress) {
+        Log.i(TAG,"progress = " + progress);
 //        setProgressPercent(progress[0]);
     }
 
     protected void onPostExecute(Integer result) {
+        Log.i(TAG,"result = " + result);
 //        showDialog("Downloaded " + result + " bytes");
 
     }
