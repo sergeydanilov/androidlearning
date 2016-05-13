@@ -25,7 +25,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import cities.sample.mobile.bpal.ru.tpproviderdemo.R;
+import ru.bpal.mobile.tpproviderdemo.R;
 import ru.bpal.mobile.tpproviderdemo.data.CitiesContract;
 
 /**

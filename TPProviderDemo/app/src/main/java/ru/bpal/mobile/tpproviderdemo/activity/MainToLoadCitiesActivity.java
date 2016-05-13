@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import cities.sample.mobile.bpal.ru.tpproviderdemo.R;
+import ru.bpal.mobile.tpproviderdemo.R;
 import ru.bpal.mobile.tpproviderdemo.service.TPService;
 
 public class MainToLoadCitiesActivity extends AppCompatActivity {

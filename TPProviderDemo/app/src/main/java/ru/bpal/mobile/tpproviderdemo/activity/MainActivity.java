@@ -4,7 +4,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import cities.sample.mobile.bpal.ru.tpproviderdemo.R;
+
+import ru.bpal.mobile.tpproviderdemo.R;
 import ru.bpal.mobile.tpproviderdemo.fragment.CustomProviderFragment;
 
 public class MainActivity extends AppCompatActivity {
