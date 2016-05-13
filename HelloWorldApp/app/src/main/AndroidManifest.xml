@@ -28,6 +28,17 @@
         <activity android:name=".activity.AsynctTasksActivity" />
         <activity android:name=".activity.AsyncLoaderDemoActivity" />
         <activity android:name=".activity.ReflectionActivity"></activity>
+
+        <receiver android:name=".reciever.HelloBroadcastReciever">
+
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED">
+                </action>
+                <action android:name="hello.sample.mobile.bpal.ru.helloworldapp.CUSTOM_INTENT">
+                </action>
+            </intent-filter>
+
+        </receiver>
     </application>
 
 </manifest>

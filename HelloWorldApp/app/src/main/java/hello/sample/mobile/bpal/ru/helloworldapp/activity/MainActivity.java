@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private Button button;
     private Button loaderButton;
     private Button reflectionButton;
+    private Button reciverButton;
     private EditText idText;
     private EditText nameText;
     private EditText stateText;
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         button = (Button) findViewById(R.id.button);
         loaderButton = (Button) findViewById(R.id.loaderButton);
         reflectionButton = (Button) findViewById(R.id.reflectionButton);
+        reciverButton = (Button) findViewById(R.id.reciverButton);
         idText= (EditText) findViewById(R.id.editText);
         nameText= (EditText) findViewById(R.id.editText1);
         stateText= (EditText) findViewById(R.id.editText2);
@@ -78,6 +80,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ReflectionActivity.class);
                 startActivity(intent);
+            }
+        });
+        reciverButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setAction("hello.sample.mobile.bpal.ru.helloworldapp.CUSTOM_INTENT");
+                sendBroadcast(intent);
             }
         });
 
