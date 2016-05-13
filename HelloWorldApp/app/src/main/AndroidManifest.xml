@@ -32,8 +32,6 @@
         <receiver android:name=".reciever.HelloBroadcastReciever">
 
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED">
-                </action>
                 <action android:name="hello.sample.mobile.bpal.ru.helloworldapp.CUSTOM_INTENT">
                 </action>
             </intent-filter>

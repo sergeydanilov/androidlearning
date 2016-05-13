@@ -42,8 +42,6 @@ public class MainActivity extends AppCompatActivity {
         reflectionButton = (Button) findViewById(R.id.reflectionButton);
         reciverButton = (Button) findViewById(R.id.reciverButton);
         idText= (EditText) findViewById(R.id.editText);
-        nameText= (EditText) findViewById(R.id.editText1);
-        stateText= (EditText) findViewById(R.id.editText2);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
