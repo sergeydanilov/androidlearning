@@ -26,7 +26,8 @@
         <activity android:name=".activity.SpinnerActivity" />
         <activity android:name=".activity.WebActivity" />
         <activity android:name=".activity.AsynctTasksActivity" />
-        <activity android:name=".activity.AsyncLoaderDemoActivity"></activity>
+        <activity android:name=".activity.AsyncLoaderDemoActivity" />
+        <activity android:name=".activity.ReflectionActivity"></activity>
     </application>
 
 </manifest>

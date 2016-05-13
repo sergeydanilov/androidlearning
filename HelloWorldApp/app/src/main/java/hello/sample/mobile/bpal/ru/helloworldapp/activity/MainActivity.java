@@ -11,6 +11,7 @@ import android.widget.EditText;
 import hello.sample.mobile.bpal.ru.helloworldapp.HelloWordApplication;
 import hello.sample.mobile.bpal.ru.helloworldapp.R;
 import hello.sample.mobile.bpal.ru.helloworldapp.data.Person;
+import hello.sample.mobile.bpal.ru.helloworldapp.reflection.ReflectionExample;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button button;
     private Button loaderButton;
+    private Button reflectionButton;
     private EditText idText;
     private EditText nameText;
     private EditText stateText;
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         button = (Button) findViewById(R.id.button);
         loaderButton = (Button) findViewById(R.id.loaderButton);
+        reflectionButton = (Button) findViewById(R.id.reflectionButton);
         idText= (EditText) findViewById(R.id.editText);
         nameText= (EditText) findViewById(R.id.editText1);
         stateText= (EditText) findViewById(R.id.editText2);
@@ -67,6 +70,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, AsyncLoaderDemoActivity.class);
+                startActivity(intent);
+            }
+        });
+        reflectionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ReflectionActivity.class);
                 startActivity(intent);
             }
         });
