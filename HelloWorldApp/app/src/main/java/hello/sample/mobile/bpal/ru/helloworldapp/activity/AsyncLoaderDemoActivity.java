@@ -36,6 +36,7 @@ public class AsyncLoaderDemoActivity extends AppCompatActivity {
         mListView.setAdapter(mAdapter);
 
         loaderHelper = new LoaderHelper();
+//        getLoaderManager().initLoader(0, null, loaderHelper);
     }
 
 
