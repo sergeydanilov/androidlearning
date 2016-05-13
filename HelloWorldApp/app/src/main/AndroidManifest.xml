@@ -37,6 +37,15 @@
             </intent-filter>
 
         </receiver>
+
+        <receiver android:name=".reciever.NetworkReciever">
+
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE">
+                </action>
+            </intent-filter>
+
+        </receiver>
     </application>
 
 </manifest>
